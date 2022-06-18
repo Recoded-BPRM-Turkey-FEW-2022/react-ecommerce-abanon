@@ -1,0 +1,1 @@
+//Here I still dont get it a lot. but I think we will bring the data from the local Dtabase and then we will display it in the DisplayCart component.

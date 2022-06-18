@@ -1,0 +1,1 @@
+// I think here we will display cart items and then we will display the total price.
