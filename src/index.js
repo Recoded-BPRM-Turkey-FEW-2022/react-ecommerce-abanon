@@ -14,9 +14,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/allProducts" element={<AllProducts />} />
+        {/* <Route path="/allProducts" element={<AllProducts />} />
         <Route path="/allproducts/:productId" element={<OneProduct />} />
-        <Route path="/Cart" element={<Cart />} />
+        <Route path="/Cart" element={<Cart />} /> */}
       </Routes>
     </BrowserRouter>
   </StrictMode>
