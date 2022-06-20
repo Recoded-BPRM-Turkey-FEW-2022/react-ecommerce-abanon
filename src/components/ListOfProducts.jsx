@@ -25,10 +25,10 @@ const ListOfProducts = ({ info }) => {
         <Box sx={{ flexGrow: 1 }} style={{padding:"5"}}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           
-         {info.map((product,index)=>{
+         {info.map((product)=>{
             return (
-                <Grid item xs={2} sm={4} md={4} key={index}>
-        <OneCard image = {product.image} title ={product.title} price={product.price} key={product.id} />
+                <Grid item xs={2} sm={4} md={4} key={product.id}>
+        <OneCard image = {product.image} title ={product.title} price={product.price}  />
         </Grid>
         )}
         
