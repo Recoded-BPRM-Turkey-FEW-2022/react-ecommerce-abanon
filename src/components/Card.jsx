@@ -1,2 +1,13 @@
-//It should contain a div to be displayed as a card in AllProducts
-// The Card contains some info on the product such as name, price, and image
+import * as React from 'react';
+
+
+//this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
+
+// const Card = ({image , title , ...})=> {
+
+// return (
+//     <>
+//     <h1>{title}</h1>
+//     </>
+// )
+// }
