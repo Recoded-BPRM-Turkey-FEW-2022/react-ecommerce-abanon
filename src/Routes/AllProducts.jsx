@@ -13,9 +13,10 @@ useEffect(() => {
 
     return(
         <>
+       
        <Filter info={info} />
        <ListOfProducts info={info}/>
        </>
     )
 }
-export default AllProducts
+export default AllProducts ;
