@@ -9,8 +9,8 @@ export default function App() {
   return (
     <div>
       <NavBar />
-      {/* <AllProducts/>
-      <Footer/> */}
+      <AllProducts/>
+      {/* <Footer/> */}
     </div>
   );
 }
