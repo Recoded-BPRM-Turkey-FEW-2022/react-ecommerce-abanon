@@ -17,7 +17,7 @@ const NavBar = () => {
     <Typography variant="h4" sx={{flexGrow: "1",cursor: "pointer"}} >
     MINISHOP
     </Typography>
-    <Button sx={{ mr:6 , color:"#ffffff"}}>Products</Button>
+    <Button href="/allProducts" sx={{ mr:6 , color:"#ffffff"}}>Products</Button>
     <Categories/>
     <Paper
     component="form"
