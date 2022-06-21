@@ -8,13 +8,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
- const OneCard = ({image ,title ,price ,key})=> {
-console.log(title)
+ const OneCard = ({image ,title ,price ,productID})=> {
+ 
 return (
-     
+
     <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
         
-      <CardActionArea > {/* add the route in the cart action area here*/}
+      <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
         <CardMedia
         //  sx={{ boxSizing: "100%"}}
           component="img"

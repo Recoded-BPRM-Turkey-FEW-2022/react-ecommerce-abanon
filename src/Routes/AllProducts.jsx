@@ -2,7 +2,9 @@ import React from "react"
 import Filter from "../components/Filter"
 import ListOfProducts from "../components/ListOfProducts"
 import {useState, useEffect} from "react"
+import { Route, useRouteMatch } from "react-router-dom";
 //The fetch function is used to get the data from the API
+
 const AllProducts = () => {
     const [info, setInfo] = useState([])
 useEffect(() => {
@@ -16,6 +18,7 @@ useEffect(() => {
        
        <Filter info={info} />
        <ListOfProducts info={info}/>
+     
        </>
     )
 }
