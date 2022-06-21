@@ -14,7 +14,7 @@ return (
 
     <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
         
-      <CardActionArea   > {/* add the route in the cart action area here*/}
+      <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
         <CardMedia
         //  sx={{ boxSizing: "100%"}}
           component="img"

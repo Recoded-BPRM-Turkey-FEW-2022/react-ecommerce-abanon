@@ -11,11 +11,11 @@ useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
         .then(res => res.json())
         .then(console.log)
-}, [id])
+}, [])
 return(
     <>
-    <div>aaaaaaaa</div>
-    {/* <OneProduct ProductInfo={ProductInfo}/> */}
+
+    <OneProduct ProductInfo={ProductInfo}/>
     </>
 )
 }
