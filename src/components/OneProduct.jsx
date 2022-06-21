@@ -13,11 +13,11 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
-const OneProduct = ({ info }) => {
+const OneProduct = ({ ProductInfo }) => {
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
     <Grid  sx={{}} item xs={12} md={3}>
-      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(" + ${ProductInfo.image} + ")`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'}}>img</Item>
@@ -26,7 +26,7 @@ const OneProduct = ({ info }) => {
     </Grid>
     </Grid>
     <Grid  item xs={12}  md={8}>
-      <Item style={{height: "100%"}}><h1>KEYBOARD</h1><div style={{m:"10px", textAlign: 'left'}}>a good keyboard</div></Item>
+      <Item style={{height: "100%"}}><h1>{ProductInfo.title}</h1><div style={{m:"10px", textAlign: 'left'}}>{ProductInfo.description}</div></Item>
     </Grid>
       </Grid>)
 }
