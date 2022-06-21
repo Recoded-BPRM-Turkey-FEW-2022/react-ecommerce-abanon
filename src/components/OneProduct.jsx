@@ -6,6 +6,9 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -13,7 +16,11 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+
+
+
 const OneProduct = ({ ProductInfo }) => {
+  // console.log(ProductInfo)
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
     <Grid  sx={{}} item xs={12} md={3}>

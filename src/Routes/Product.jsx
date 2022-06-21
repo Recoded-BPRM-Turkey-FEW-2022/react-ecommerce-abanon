@@ -5,16 +5,21 @@ import OneProduct from "../components/OneProduct";
 
 
 const Product = () => {
-    const {id}  = useParams();
+    const {productId}  = useParams();
 const [ProductInfo, setProductInfo] = useState([]);
 useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    console.log(productId)
+    fetch(`https://fakestoreapi.com/products/${productId}`)
         .then(res => res.json())
-        .then(console.log)
+        
+        .then(data => { setProductInfo(data)
+        console.log(data)})
+        
 }, [])
+
+
 return(
     <>
-
     <OneProduct ProductInfo={ProductInfo}/>
     </>
 )
