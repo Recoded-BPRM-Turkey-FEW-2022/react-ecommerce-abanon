@@ -20,7 +20,7 @@ export default function App() {
           <React.Fragment>aaaa</React.Fragment>
         </Route>
         <Route path="/allProducts" element={<AllProducts />} />
-         <Route path="/allproducts/:productId" element={<Product />} />
+        <Route path="/allproducts/:productId" element={<Product />} />
         <Route path="/Cart" element={<Cart />} /> 
       </Routes>
      <Footer/>
