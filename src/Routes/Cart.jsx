@@ -6,8 +6,8 @@ import DisplayCart from '../components/DisplayCart'
 const Cart =()=>{
     const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('http://localhost:3000/posts')
-    .then(res =>console.log(res.json()))
-    .then(console.log)
+    .then(res =>res.json())
+    .then(data=>console.log(data))
   )
 
   if (isLoading) return 'Loading...'
