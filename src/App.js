@@ -5,6 +5,11 @@ import AllProducts from "./Routes/AllProducts";
 import Footer from "./components/Footer";
 import Product from "./Routes/Product";
 import { Route, Routes } from "react-router-dom";
+import DisplayCart from "./components/DisplayCart";
+import Cart from "./Routes/Cart"
+
+
+
 
 export default function App() {
   return (
@@ -16,7 +21,7 @@ export default function App() {
         </Route>
         <Route path="/allProducts" element={<AllProducts />} />
          <Route path="/allproducts/:productId" element={<Product />} />
-        {/*<Route path="/Cart" element={<Cart />} /> */}
+        <Route path="/Cart" element={<Cart />} /> 
       </Routes>
      <Footer/>
     </div>

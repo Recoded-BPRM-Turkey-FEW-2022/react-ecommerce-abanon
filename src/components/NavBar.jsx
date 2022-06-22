@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Categories from "./Categories";
+import {Link} from 'react-router-dom' ;
 // // For Ghofran....
 //to include "Search", "Category", "Cart", "Home (AllProducts)"
 const NavBar = () => {
@@ -31,7 +32,9 @@ const NavBar = () => {
     <SearchIcon />
     </IconButton>
     </Paper>
-    <ShoppingCartIcon sx={{fontSize:'30' , cursor: "pointer" , ml:3}}/>
+    <Link to ="/Cart">
+    <ShoppingCartIcon  sx={{fontSize:'30' , cursor: "pointer" , ml:3}}/>
+    </Link>
     </Toolbar>
     </AppBar>
     );

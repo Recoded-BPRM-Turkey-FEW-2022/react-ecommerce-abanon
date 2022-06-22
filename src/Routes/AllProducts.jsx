@@ -19,7 +19,7 @@ useEffect(() => {
        <Filter info={info} />
        <ListOfProducts info={info}/>
      
-       </>
+    </>
     )
 }
 export default AllProducts ;
