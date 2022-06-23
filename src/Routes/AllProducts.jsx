@@ -16,7 +16,7 @@ useEffect(() => {
     return(
         <>
        
-       <Filter info={info} />
+       <Filter info={info} setInfo={setInfo} />
        <ListOfProducts info={info}/>
      
        </>
