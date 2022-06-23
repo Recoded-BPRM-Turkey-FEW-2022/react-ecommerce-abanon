@@ -5,13 +5,29 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import {useEffect} from "react";
+
+
+
+
+ //Should be exported to the list of products
+
 
 const defaultValues = {
   name: "",
   price: 0,
-  category: "",
+  category: "all"
 };
-const Filter = ({info , setInfo}) => {
+ const Filter = ({info , setInfo}) => {
+const [filteredInfo, setFilteredInfo] = useState([]);
+
+
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products')
+      .then(res => res.json())
+      .then(data => setFilteredInfo(data))
+  }, [])
+  
   const [formValues, setFormValues] = useState(defaultValues);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,12 +39,13 @@ const Filter = ({info , setInfo}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(info)
-    let filteredProducts = info.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
+
+     let filtering = filteredInfo.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
     .filter (product => {return !formValues.price? product :  product.price <= formValues.price})
     .filter (product =>  {return formValues.category === "all"? product: product.category === formValues.category})
-    console.log(filteredProducts)
-    return filteredProducts
+    setInfo(filtering)
+    console.log(info)
+
   };
   return (
     <form onSubmit={handleSubmit}>
