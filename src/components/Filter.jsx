@@ -24,10 +24,11 @@ const Filter = ({info , setInfo}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(info)
-    let filteredProducts = info.filter(product => product.title.toLowerCase().includes(formValues.name.toLowerCase()))
-    .filter (product => product.price <= formValues.price)
-    .filter (product => product.category === formValues.category)
+    let filteredProducts = info.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
+    .filter (product => {return !formValues.price? product :  product.price <= formValues.price})
+    .filter (product =>  {return formValues.category === "all"? product: product.category === formValues.category})
     console.log(filteredProducts)
+    return filteredProducts
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -59,6 +60,9 @@ const Filter = ({info , setInfo}) => {
               value={formValues.category}
               onChange={handleInputChange}
             >
+              <MenuItem key="All" value= "all">
+              All
+              </MenuItem>
               <MenuItem key="Men" value= "men's clothing">
               Men
               </MenuItem>
