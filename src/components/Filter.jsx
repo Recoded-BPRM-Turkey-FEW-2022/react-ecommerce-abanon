@@ -18,7 +18,7 @@ const defaultValues = {
   price: 0,
   category: "all"
 };
- const Filter = ({info , setInfo}) => {
+ const Filter = ({setInfo}) => {
 const [filteredInfo, setFilteredInfo] = useState([]);
 
 
@@ -44,7 +44,6 @@ useEffect(() => {
     .filter (product => {return !formValues.price? product :  product.price <= formValues.price})
     .filter (product =>  {return formValues.category === "all"? product: product.category === formValues.category})
     setInfo(filtering)
-    console.log(info)
 
   };
   return (
