@@ -5,16 +5,23 @@ import AllProducts from "./Routes/AllProducts";
 import Footer from "./components/Footer";
 import Product from "./Routes/Product";
 import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function App() {
+  const [info, setInfo] = useState([])
+  useEffect(() => {
+      fetch('https://fakestoreapi.com/products')
+          .then(res => res.json())
+          .then(data => setInfo(data))
+      }, [])
   return (
     <div>
-      <NavBar />
+      <NavBar setInfo={setInfo} info={info}/>
       <Routes>
       <Route path="/">
           <React.Fragment>aaaa</React.Fragment>
         </Route>
-        <Route path="/allProducts" element={<AllProducts />} />
+        <Route path="/allProducts" element={<AllProducts info={info} setInfo={setInfo}  />} />
          <Route path="/allproducts/:productId" element={<Product />} />
         {/*<Route path="/Cart" element={<Cart />} /> */}
       </Routes>
