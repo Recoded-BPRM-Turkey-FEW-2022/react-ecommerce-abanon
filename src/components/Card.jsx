@@ -4,12 +4,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-
-
+import { useMutation } from 'react-query';
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
- const OneCard = ({image ,title ,price ,productID ,mutation})=> {
+ const OneCard = ({image ,title ,price ,productID})=> {
+  const postData = useMutation((Addproduct)=>{
+    console.log(Addproduct)
+    return fetch('http://localhost:3000/posts', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(Addproduct)
+})
+  })
 
+  
 return (
     <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
         
@@ -32,7 +43,12 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions  >
-        <Button onClick={()=>{mutation(price)}} size="small" color="primary">
+        <Button onClick={()=>{postData.mutate({
+          id : productID,
+          title : title,
+          price : price,
+          image : image
+        })}} size="small" color="primary">
           Add to Cart
         </Button>
       </CardActions>

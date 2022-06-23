@@ -2,7 +2,7 @@
 import react from 'react';
 
 
-const DisplayCart = ({data,mutation})=>{
+const DisplayCart = ({data})=>{
 
     
 // console.log(data)
@@ -12,10 +12,9 @@ return (
 <>
 <div>
 <h1>
-{data.title}
+{data[0].title}
 </h1>
-<button onClick={()=>{console.log(data)
-    ; mutation(data)}}>
+<button onClick={()=>{console.log(data)}}>
     
 Clik me 
 </button>
