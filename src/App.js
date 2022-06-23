@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import DisplayCart from "./components/DisplayCart";
 import Cart from "./Routes/Cart"
 import { useState, useEffect } from "react";
-
+import { useQuery, useMutation } from 'react-query';
 
 export default function App() {
   const [info, setInfo] = useState([])
@@ -17,6 +17,27 @@ export default function App() {
           .then(res => res.json())
           .then(data => setInfo(data))
       }, [])
+
+      const postData =(Addproduct)=>{
+    console.log(Addproduct)
+    return fetch('http://localhost:3000/posts', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({...Addproduct})
+}).then(res => res.json())
+  .then(res => {return res})
+  
+  }
+
+
+
+  const mutation = useMutation(NewItem => {
+    return postData(NewItem)
+  })
+  
   return (
     <div>
       <NavBar setInfo={setInfo} info={info}/>
@@ -24,8 +45,8 @@ export default function App() {
       <Route path="/">
           <React.Fragment>aaaa</React.Fragment>
         </Route>
-        <Route path="/allProducts" element={<AllProducts info={info} setInfo={setInfo}  />} />
-         <Route path="/allproducts/:productId" element={<Product />} />
+        <Route path="/allProducts" element={<AllProducts  info={info} setInfo={setInfo} mutation={mutation} />} />
+         <Route path="/allproducts/:productId" element={<Product mutation={mutation.mutate}/>} />
         <Route path="/Cart" element={<Cart />} /> 
 
       </Routes>

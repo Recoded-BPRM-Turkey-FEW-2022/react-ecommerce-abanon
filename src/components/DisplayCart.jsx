@@ -2,17 +2,23 @@
 import react from 'react';
 
 
-const DisplayCart = ({data})=>{
+const DisplayCart = ({data,mutation})=>{
 
-
+    
 // console.log(data)
 
 return (
 
 <>
 <div>
-
-this is the cart 
+<h1>
+{data.title}
+</h1>
+<button onClick={()=>{console.log(data)
+    ; mutation(data)}}>
+    
+Clik me 
+</button>
 </div>
 
 </>

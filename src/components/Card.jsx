@@ -8,7 +8,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
- const OneCard = ({image ,title ,price ,productID})=> {
+ const OneCard = ({image ,title ,price ,productID ,mutation})=> {
 
 return (
     <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
@@ -32,7 +32,7 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions  >
-        <Button  size="small" color="primary">
+        <Button onClick={()=>{mutation(price)}} size="small" color="primary">
           Add to Cart
         </Button>
       </CardActions>

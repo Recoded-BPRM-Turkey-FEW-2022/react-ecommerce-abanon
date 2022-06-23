@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 
-const OneProduct = ({ ProductInfo }) => {
+const OneProduct = ({ ProductInfo ,mutation}) => {
   // console.log(ProductInfo)
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
@@ -29,7 +29,7 @@ const OneProduct = ({ ProductInfo }) => {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'}}>img</Item>
       <Grid sx={{pb:"0px"}} item xs={12}  md={12}>
-    <Button variant="contained" sx={{m:"10px", width:"90%"}} onClick={null}>Add to cart</Button>
+    <Button variant="contained" sx={{m:"10px", width:"90%"}} onClick={(ProductInfo)=>{mutation(ProductInfo)}}>Add to cart</Button>
     </Grid>
     </Grid>
     <Grid  item xs={12}  md={8}>
