@@ -6,11 +6,17 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import  { useState } from "react";
-
+import { useEffect } from "react";
 const defaultValues = {
     name: ""
     };
-const Search =({Info,setInfo})=>{
+const Search =({setInfo, info})=>{
+  const [listToSearch, setlistToSearch] = useState([])
+  useEffect(() => {
+      fetch('https://fakestoreapi.com/products')
+          .then(res => res.json())
+          .then(data => setlistToSearch(data))
+      }, [])
 
     const [formValues, setFormValues] = useState(defaultValues);
 
@@ -23,9 +29,10 @@ const Search =({Info,setInfo})=>{
   };
 
   const handleSubmit = (event) => {
+    
     event.preventDefault();
-     let searching = Info.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
-    console.log(searching)
+     let searching = listToSearch.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
+    // console.log(searching)
     setInfo(searching)
     
   };
