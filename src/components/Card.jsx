@@ -32,7 +32,7 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions  >
-        <Button onClick={HandleAddToCart} size="small" color="primary">
+        <Button  size="small" color="primary">
           Add to Cart
         </Button>
       </CardActions>

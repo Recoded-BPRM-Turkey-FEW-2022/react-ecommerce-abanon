@@ -32,7 +32,7 @@ const Search =({setInfo, info})=>{
     
     event.preventDefault();
      let searching = listToSearch.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
-    // console.log(searching)
+    console.log(searching)
     setInfo(searching)
     
   };
