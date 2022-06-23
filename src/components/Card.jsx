@@ -9,9 +9,8 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
  const OneCard = ({image ,title ,price ,productID})=> {
- 
-return (
 
+return (
     <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
         
       <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
@@ -32,8 +31,8 @@ return (
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
+      <CardActions  >
+        <Button onClick={HandleAddToCart} size="small" color="primary">
           Add to Cart
         </Button>
       </CardActions>

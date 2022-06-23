@@ -5,7 +5,10 @@ import AllProducts from "./Routes/AllProducts";
 import Footer from "./components/Footer";
 import Product from "./Routes/Product";
 import { Route, Routes } from "react-router-dom";
+import DisplayCart from "./components/DisplayCart";
+import Cart from "./Routes/Cart"
 import { useState, useEffect } from "react";
+
 
 export default function App() {
   const [info, setInfo] = useState([])
@@ -23,7 +26,8 @@ export default function App() {
         </Route>
         <Route path="/allProducts" element={<AllProducts info={info} setInfo={setInfo}  />} />
          <Route path="/allproducts/:productId" element={<Product />} />
-        {/*<Route path="/Cart" element={<Cart />} /> */}
+        <Route path="/Cart" element={<Cart />} /> 
+
       </Routes>
      <Footer/>
     </div>

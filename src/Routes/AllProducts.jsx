@@ -11,7 +11,7 @@ const AllProducts = ({info, setInfo}) => {
        <Filter setInfo={setInfo} info={info} />
        <ListOfProducts info={info}/>
      
-       </>
+    </>
     )
 }
 export default AllProducts ;
