@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useMutation } from 'react-query';
+import '../style.css' ;
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
  const OneCard = ({image ,title ,price ,productID})=> {
@@ -31,6 +32,7 @@ return (
         height="150"
           image={image}
           alt={title}
+          className='css-o69gx8-MuiCardMedia-root'
          
         />
         <CardContent>
