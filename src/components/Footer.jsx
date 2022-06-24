@@ -10,7 +10,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 const Footer = () => {
     return (
         <>
-        <BottomNavigation    style={{ background: '#2E3B55' ,position='absolute' , bottom :'0' }}>
+        <BottomNavigation    style={{ background: '#2E3B55' , position:'absolute' , bottom :'0' }}>
         <Toolbar sx={{justifyContents:"space-between"}} >
         
         <Typography variant="h4" sx={{flexGrow: "1",cursor: "pointer"}} >

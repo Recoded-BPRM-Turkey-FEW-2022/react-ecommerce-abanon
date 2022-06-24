@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import {useMutation, useQueryClient } from 'react-query'
+import {useMutation } from 'react-query'
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -28,7 +28,7 @@ const OneProduct = ({ ProductInfo}) => {
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
     <Grid  sx={{}} item xs={12} md={3}>
-      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(" ${ProductInfo.image}")`,
+      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(" ${ProductInfo.images[0]}")`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'}}>Price</Item>
@@ -38,7 +38,7 @@ const OneProduct = ({ ProductInfo}) => {
           id : ProductInfo.productID,
           title : ProductInfo.title,
           price : ProductInfo.price,
-          image : ProductInfo.image
+          image : ProductInfo.images[0]
         })}}>Add to cart</Button>
     </Grid>
     </Grid>

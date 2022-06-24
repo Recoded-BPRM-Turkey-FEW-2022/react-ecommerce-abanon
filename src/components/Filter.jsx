@@ -23,7 +23,7 @@ const [filteredInfo, setFilteredInfo] = useState([]);
 
 
 useEffect(() => {
-  fetch('https://fakestoreapi.com/products')
+  fetch('https://api.escuelajs.co/api/v1/products')
       .then(res => res.json())
       .then(data => setFilteredInfo(data))
   }, [])
@@ -42,7 +42,7 @@ useEffect(() => {
 
      let filtering = filteredInfo.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
     .filter (product => {return !formValues.price? product :  product.price <= formValues.price})
-    .filter (product =>  {return formValues.category === "all"? product: product.category === formValues.category})
+    .filter (product =>  {return formValues.category === "all"? product: product.category.name === formValues.category})
     setInfo(filtering)
 
   };
@@ -79,17 +79,20 @@ useEffect(() => {
               <MenuItem key="All" value= "all">
               All
               </MenuItem>
-              <MenuItem key="Men" value= "men's clothing">
-              Men
+              <MenuItem key="Clothes" value= "Clothes">
+              Clothes
               </MenuItem>
-              <MenuItem key="Women" value="women's clothing">
-              Women
+              <MenuItem key="Furniture" value="Furniture">
+              Furniture
               </MenuItem>
-              <MenuItem key="Electronic " value="electronics">
-              Electronic
+              <MenuItem key="Electronics " value="Electronics">
+              Electronics
               </MenuItem>
-              <MenuItem key="Jewelery " value="jewelery">
-              Jewelery
+              <MenuItem key="Shoes " value="Shoes">
+              Shoes
+              </MenuItem>
+              <MenuItem key="Others " value="Others">
+              Others
               </MenuItem>
             </Select>
           </FormControl>

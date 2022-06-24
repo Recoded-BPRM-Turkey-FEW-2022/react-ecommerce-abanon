@@ -10,10 +10,10 @@ import { useEffect } from "react";
 const defaultValues = {
     name: ""
     };
-const Search =({setInfo, info})=>{
+const Search =({setInfo})=>{
   const [listToSearch, setlistToSearch] = useState([])
   useEffect(() => {
-      fetch('https://fakestoreapi.com/products')
+      fetch('https://api.escuelajs.co/api/v1/products')
           .then(res => res.json())
           .then(data => setlistToSearch(data))
       }, [])

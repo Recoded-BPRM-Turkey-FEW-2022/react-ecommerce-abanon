@@ -9,6 +9,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { Button} from '@mui/material';
+import { useQueryClient } from 'react-query';
 import '../style.css' ;
 
 const styledImage = {
@@ -17,6 +18,7 @@ const styledImage = {
 }
 
 const DisplayCart = ({data})=>{
+  const queryClient = new useQueryClient()
   const deleteItem = useMutation((productID)=>{
     console.log("The product With the ID " + productID+ " has been removed from the cart")
     return fetch(`http://localhost:3000/cart/${productID}`, {

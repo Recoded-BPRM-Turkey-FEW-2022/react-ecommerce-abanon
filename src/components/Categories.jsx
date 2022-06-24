@@ -79,21 +79,22 @@ export default function Categories() {
         open={open}
         onClose={handleClose}
       >
+        
         <MenuItem onClick={handleClose} disableRipple>
           
-          Men
+        Electronics
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-          Women
+        Furniture
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-          Electronic
+        Clothes
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-          Jewelery
+          Others
         </MenuItem>
       </StyledMenu>
     </div>

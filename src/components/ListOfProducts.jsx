@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 
-const ListOfProducts = ({ info ,mutation}) => {
+const ListOfProducts = ({ info}) => {
     return (
         <>  {/*Interate over products and create one card */}
         <Box sx={{ flexGrow: 1 }} style={{padding:"5"}}>
@@ -29,7 +29,7 @@ const ListOfProducts = ({ info ,mutation}) => {
         
             return (
                 <Grid item xs={2} sm={4} md={4} key={product.id}>
-        <OneCard  productID={product.id} image = {product.image} title ={product.title} price={product.price} />
+        <OneCard  productID={product.id} image = {product.images[0]} title ={product.title} price={product.price} />
         </Grid>
         )}
         
