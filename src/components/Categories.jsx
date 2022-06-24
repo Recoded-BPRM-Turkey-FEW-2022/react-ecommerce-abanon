@@ -58,7 +58,7 @@ export default function Categories() {
 
   return (
     <div>
-      <Button sx={{ background: '#c96f53' , color: '#ffffff'}}
+      <Button className='catogries:hover' sx={{ background: '#c96f53' , color: '#ffffff'}}
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"

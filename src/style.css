@@ -28,6 +28,7 @@ justify-items: center;
 text-align: center;
 }
 
+
 .css-1h0b4bo-MuiSvgIcon-root{
   fill:#ffff !important
 }
@@ -62,4 +63,23 @@ height: auto !important;
 
   }
 
+  button:hover {
+    background-color:#c97b63!important;
+}
+.catogries:hover {
+  background-color:#c97b63!important;
+}
+
+.onePageAddtoCart{
+
+display:flex;
+align-items: center;
+flex-direction: column-reverse;
+
+}
+
+.onePageText{
+padding: 2%;
+  text-align: center;
   
+}

@@ -23,7 +23,7 @@ const ListOfProducts = ({ info}) => {
     return (
         <>  {/*Interate over products and create one card */}
          <Box  padding={5} sx ={{background:'#fafafa'}} >
-      <Grid  style={{padding:"5"}} sx ={{background:'#fafafa' ,flexGrow: 1 }} container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
+      <Grid  style={{padding:"5"}} sx ={{background:'#fafafa' ,flexGrow: 1 }} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
           
          {info.map((product )=>{
         

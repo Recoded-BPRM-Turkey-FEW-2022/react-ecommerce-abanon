@@ -30,13 +30,26 @@ const OneProduct = ({ ProductInfo}) => {
   })
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
-    <Grid  sx={{}} item xs={12} md={3}>
-      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(${ProductInfo.images})`,
+    <Grid  sx={{}} item xs={12} md={8}>
+      <Item sx={{pb:"0px"}} style={{height: "70%", backgroundImage: `url(${ProductInfo.images})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'}}></Item>
       <Grid sx={{pb:"0px"}} item xs={12}  md={12}>
-    <Button  variant="contained" sx={{m:"10px", width:"90%" , background: '#ff9e80' , color: '#ffffff'}} onClick={()=>{postData.mutate({
+    </Grid>
+    </Grid>
+
+{/* second part (col) item 2 */}
+    <Grid  item xs={12}  md={3}>
+      <Item sx={{pt:4}} style={{height: "80%"}}>
+        <h2 sx={{mt:10}} className='onePageText' >{ProductInfo.title}</h2>
+        <div  className='onePageText'>
+        <h4 sx={{mt:3}} className='onePageText' style={{ textAlign: 'left'}}>{ProductInfo.description}</h4>
+        <Item  className='onePageText'  variant="contained" sx={{ textAlign: "left"}} ><h3>Price: {ProductInfo.price} $</h3></Item>
+        </div>
+        {/* under the  text */}
+        <div className='onePageAddtoCart'>
+      <Button  variant="contained" sx={{m:"10px", width:"90%" , background: '#ff9e80' , color: '#ffffff'}} onClick={()=>{postData.mutate({
           id : ProductInfo.id,
           title : ProductInfo.title,
           price : ProductInfo.price,
@@ -44,22 +57,16 @@ const OneProduct = ({ ProductInfo}) => {
           quantity : quantity,
           total : ProductInfo.price * parseInt(quantity)
         })}}>Add to cart</Button>
-         <TextField sx={{ml:3}} type="number" value={quantity}  InputProps={{
+         <TextField sx={{}} type="number" value={quantity}  InputProps={{
         inputProps: { 
           min:1
         }
     }} onChange={(e)=>{setQuantity(e.target.value)}}>
 
         </TextField>
-    </Grid>
-    </Grid>
-    <Grid  item xs={12}  md={8}>
-      <Item sx={{}} style={{height: "80%"}}>
-
-        <h1>{ProductInfo.title}</h1>
-        <div style={{m:"10px", textAlign: 'left'}}>{ProductInfo.description}</div>
-        <Item variant="contained" sx={{m:"20px", textAlign: "left"}} >Price: {ProductInfo.price} $</Item>
+        </div>
       </Item>
+      
     </Grid>
       </Grid>)
 }
