@@ -4,15 +4,17 @@ import { useQuery, useMutation, useQueryClient } from 'react-query'
 import DisplayCart from '../components/DisplayCart'
 
 const Cart =()=>{
-  const QueryClient = new useQueryClient()
-    const { isLoading, error, data } = useQuery('cart', () =>
+  const queryClient = new useQueryClient()
+    const { isLoading, error, data , onSuccess} = useQuery('cart', () =>
     fetch(`http://localhost:3000/cart`)
     .then(res =>res.json())
-    .then(data=>{return data})
+    .then(data=>{return data}),
+  
+    
   )
-  onSuccess : () => {QueryClient.invalidateQueries('cart')}
+  if (onSuccess) {queryClient.invalidateQueries('cart')}
   if (isLoading) return 'Loading...'
-
+  
   if (error) return 'An error has occurred: ' + error.message
  
  

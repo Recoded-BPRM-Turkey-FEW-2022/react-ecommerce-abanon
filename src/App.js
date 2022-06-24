@@ -20,7 +20,7 @@ export default function App() {
 
       const postData =(Addproduct)=>{
     console.log(Addproduct)
-    return fetch('http://localhost:3000/posts', {
+    return fetch('http://localhost:3000/cart', {
   method: 'POST',
   headers: {
     'Accept': 'application/json, text/plain, */*',
@@ -42,9 +42,8 @@ export default function App() {
     <div>
       <NavBar setInfo={setInfo} info={info}/>
       <Routes>
-      <Route path="/">
-          <React.Fragment>aaaa</React.Fragment>
-        </Route>
+      <Route path="/" element={ <React.Fragment><h1>Welcome</h1></React.Fragment>} />
+         
         <Route path="/allProducts" element={<AllProducts  info={info} setInfo={setInfo} mutation={mutation} />} />
          <Route path="/allproducts/:productId" element={<Product mutation={mutation.mutate}/>} />
         <Route path="/Cart" element={<Cart />} /> 

@@ -10,7 +10,7 @@ import { useMutation } from 'react-query';
  const OneCard = ({image ,title ,price ,productID})=> {
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
-    return fetch('http://localhost:3000/posts', {
+    return fetch('http://localhost:3000/cart', {
   method: 'POST',
   headers: {
     'Accept': 'application/json, text/plain, */*',

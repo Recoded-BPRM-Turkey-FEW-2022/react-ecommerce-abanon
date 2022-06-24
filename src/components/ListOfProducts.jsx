@@ -29,7 +29,7 @@ const ListOfProducts = ({ info ,mutation}) => {
         
             return (
                 <Grid item xs={2} sm={4} md={4} key={product.id}>
-        <OneCard  productID={product.id} image = {product.image} title ={product.title} price={product.price} addToCart={addToCart} />
+        <OneCard  productID={product.id} image = {product.image} title ={product.title} price={product.price} />
         </Grid>
         )}
         
