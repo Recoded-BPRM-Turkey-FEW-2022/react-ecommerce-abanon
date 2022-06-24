@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom' ;
 const NavBar = ({setInfo, info}) => {
 
     return (
-    <AppBar position='static' style={{ background: '#2E3B55' }}>
+    <AppBar position='static' style={{ background: '#c96f53' }}>
     <Toolbar >
     <Typography variant="h4" sx={{flexGrow: "1",cursor: "pointer"}} >
     MINISHOP
@@ -20,7 +20,7 @@ const NavBar = ({setInfo, info}) => {
     <Button href="/allProducts" sx={{ mr:6 , color:"#ffffff"}}>Products</Button>
     <Categories/>
     <Search setInfo={setInfo} info={info}/>
-    <Link to ="/Cart">
+    <Link to ="/Cart" className='.css-1h0b4bo-MuiSvgIcon-root' style={{color:'#fffff'}}>
     <ShoppingCartIcon sx={{fontSize:'30' , cursor: "pointer" , ml:3}}/>
     </Link>
     </Toolbar>

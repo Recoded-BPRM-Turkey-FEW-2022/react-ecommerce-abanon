@@ -13,6 +13,7 @@ useEffect(() => {
     .then(data => { setProductInfo(data)})
     
 }, [])
+console.log(ProductInfo)
 
   
 

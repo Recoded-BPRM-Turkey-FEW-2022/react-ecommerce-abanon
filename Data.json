@@ -1,3 +1,16 @@
 {
-  "cart": []
+  "cart": [
+    {
+      "id": 2,
+      "title": "Ergonomic Concrete Ball",
+      "price": 23,
+      "image": "https://api.lorem.space/image/watch?w=640&h=480&r=9222"
+    },
+    {
+      "id": 1,
+      "title": "Cooler",
+      "price": 125,
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=3303"
+    }
+  ]
 }

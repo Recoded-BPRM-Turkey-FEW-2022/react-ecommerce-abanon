@@ -23,7 +23,7 @@ import '../style.css' ;
 
   
 return (
-    <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
+    <Card sx={{  maxWidth: 345 ,p:'15'}} style ={{height: ""}}>
         
       <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
         <CardMedia
@@ -32,20 +32,20 @@ return (
         height="150"
           image={image}
           alt={title}
-          className='css-o69gx8-MuiCardMedia-root'
+          className='css-o69gx8-MuiCardMedia-root' 
          
         />
         <CardContent>
-          <Typography gutterBottom variant="" component="div">
+          <Typography sx={{ color: '#494949'}} component="div">
             {title}
           </Typography>
-          <Typography gutterBottom variant="h6" component="div">
-          Price {price}$
+          <Typography sx={{ color: '#494949'}} gutterBottom variant="" component="div">
+          Price: {price}$
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions  >
-        <Button onClick={()=>{postData.mutate({
+      <CardActions sx={{ justifyContent: 'flex-end'}}  >
+        <Button sx={{ justifyContent: 'flex-end', background: '#ff9e80' ,color: '#ffff'}} onClick={()=>{postData.mutate({
           id : productID,
           title : title,
           price : price,

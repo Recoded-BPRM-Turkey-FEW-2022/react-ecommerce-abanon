@@ -58,7 +58,7 @@ export default function Categories() {
 
   return (
     <div>
-      <Button sx={{ background: '#2E3B55' , color: '#ffffff'}}
+      <Button sx={{ background: '#c96f53' , color: '#ffffff'}}
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"
@@ -79,22 +79,21 @@ export default function Categories() {
         open={open}
         onClose={handleClose}
       >
-        
         <MenuItem onClick={handleClose} disableRipple>
           
-        Electronics
+          Men
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-        Furniture
+          Women
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-        Clothes
+          Electronic
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
           
-          Others
+          Jewelery
         </MenuItem>
       </StyledMenu>
     </div>

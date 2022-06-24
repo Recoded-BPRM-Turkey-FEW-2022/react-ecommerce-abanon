@@ -48,7 +48,7 @@ useEffect(() => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Grid margin={2} container alignItems="center" justify="center" direction="row">
+      <Grid  margin={2} container alignItems="center" justify="center" direction="row">
         <Grid  margin={2} item>
           <TextField 
             id="name-input"
@@ -97,7 +97,7 @@ useEffect(() => {
             </Select>
           </FormControl>
         </Grid>
-        <Button  margin={2} variant="contained" color="primary" type="submit">
+        <Button sx={{ background: '#ff9e80' , color: '#ffffff', width:'10%' }}  margin={2} variant="contained"  type="submit">
           Filter
         </Button>
       </Grid>
