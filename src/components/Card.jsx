@@ -4,11 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { useMutation } from 'react-query';
+import TextField from '@mui/material/TextField';
+import { useMutation} from 'react-query';
+import { useState } from 'react';
 import '../style.css' ;
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
  const OneCard = ({image ,title ,price ,productID})=> {
+  const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
     return fetch('http://localhost:3000/cart', {
@@ -45,14 +48,24 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ justifyContent: 'flex-end'}}  >
-        <Button sx={{ justifyContent: 'flex-end', background: '#ff9e80' ,color: '#ffff'}} onClick={()=>{postData.mutate({
+      <Button onClick={()=>{postData.mutate({
           id : productID,
           title : title,
           price : price,
-          image : image
+          image : image,
+          quantity : quantity,
+          total : price * parseInt(quantity)
+
         })}} size="small" color="primary">
           Add to Cart
         </Button>
+        <TextField type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
       </CardActions>
     </Card>
     

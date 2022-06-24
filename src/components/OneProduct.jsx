@@ -6,6 +6,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import {useMutation } from 'react-query'
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -14,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const OneProduct = ({ ProductInfo}) => {
+  const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
     return fetch('http://localhost:3000/cart', {
@@ -28,18 +31,27 @@ const OneProduct = ({ ProductInfo}) => {
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
     <Grid  sx={{}} item xs={12} md={3}>
-      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(" ${ProductInfo.images[0]}")`,
+      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(${ProductInfo.images})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'}}>Price</Item>
+  backgroundRepeat: 'no-repeat'}}></Item>
       <Grid sx={{pb:"0px"}} item xs={12}  md={12}>
       <Item variant="contained" sx={{m:"5px", textAlign: "left"}} >Price: {ProductInfo.price}</Item>
     <Button variant="contained" sx={{m:"10px", width:"90%"}} onClick={()=>{postData.mutate({
-          id : ProductInfo.productID,
+          id : ProductInfo.id,
           title : ProductInfo.title,
           price : ProductInfo.price,
-          image : ProductInfo.images[0]
+          image : ProductInfo.images[0],
+          quantity : quantity,
+          total : ProductInfo.price * parseInt(quantity)
         })}}>Add to cart</Button>
+         <TextField type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
     </Grid>
     </Grid>
     <Grid  item xs={12}  md={8}>

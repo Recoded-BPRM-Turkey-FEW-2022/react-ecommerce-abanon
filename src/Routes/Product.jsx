@@ -11,9 +11,10 @@ useEffect(() => {
     fetch(`https://api.escuelajs.co/api/v1/products/${productId}`)
     .then(res => res.json())
     .then(data => { setProductInfo(data)})
+    .then(console.log(ProductInfo))
     
 }, [])
-console.log(ProductInfo)
+// console.log(ProductInfo)
 
   
 

@@ -4,13 +4,17 @@
       "id": 2,
       "title": "Ergonomic Concrete Ball",
       "price": 23,
-      "image": "https://api.lorem.space/image/watch?w=640&h=480&r=9222"
+      "image": "https://api.lorem.space/image/watch?w=640&h=480&r=9222",
+      "quantity": "100",
+      "total": 2300
     },
     {
       "id": 1,
       "title": "Cooler",
       "price": 125,
-      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=3303"
+      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=3303",
+      "quantity": "122",
+      "total": 15250
     }
   ]
 }

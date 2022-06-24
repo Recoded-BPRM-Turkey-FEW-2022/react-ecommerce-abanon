@@ -29,11 +29,11 @@ const DisplayCart = ({data})=>{
      )
     
 // console.log(data)
-
+let total = 0;
 return (
   <div  style={{height: "100%" ,background:'#fafafa'  }}>
 
-{data.map((product) => {
+{data.map((product) => {total= total + product.total
   return  (
     <>
 <List  key={product.id} sx={{ ml:25 ,width: '70%' , mt:5 }}>
@@ -45,15 +45,25 @@ return (
           primary= {product.title}
           secondary={
             <React.Fragment >
-              <Typography
-                sx={{ display: 'inline'}}
+               <Typography
+                sx={{ display: 'inline' ,ml:2 }}
                 component="span"
                 variant="body2"
                 color="text.primary"
               >
-                Quantity: 10
+              
+               price : {product.price}$
+              </Typography>
+              <Typography
+                sx={{ display: 'inline',ml:2}}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                  Quantity: {product.quantity}
                 
               </Typography>
+             
               <Typography
                 sx={{ display: 'inline' ,ml:2 }}
                 component="span"
@@ -61,7 +71,7 @@ return (
                 color="text.primary"
               >
               
-               price : {product.price} $
+               Total : {product.total} $
               </Typography>
               
             </React.Fragment>
@@ -77,11 +87,12 @@ return (
     
     
 </>
+
 )
 
 })}
 <div className='checkout'>
-<h3 style ={{color:'gray' ,padding:'13'}}>Total Price : $$</h3>
+<h3 style ={{color:'gray' ,padding:'13'}}>Total Checkout : {total} </h3>
 <Button variant="contained" sx={{m:"10px", width:"10%%" }} style={{ background: '#ff9e80', color:'#ffffff' }}>Check Out</Button>
 </div>
 
