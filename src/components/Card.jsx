@@ -48,7 +48,15 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ justifyContent: 'flex-end'}}  >
-      <Button onClick={()=>{postData.mutate({
+      
+        <TextField  sx={{ width:'20%'  , p:0 , mr:20}} type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
+        <Button sx={{ background: '#ff9e80' , color: '#ffffff'}}  onClick={()=>{postData.mutate({
           id : productID,
           title : title,
           price : price,
@@ -56,16 +64,9 @@ return (
           quantity : quantity,
           total : price * parseInt(quantity)
 
-        })}} size="small" color="primary">
+        })}} size="small" color="primary" background='ff9e80'>
           Add to Cart
         </Button>
-        <TextField type="number" value={quantity}  InputProps={{
-        inputProps: { 
-          min:1
-        }
-    }} onChange={(e)=>{setQuantity(e.target.value)}}>
-
-        </TextField>
       </CardActions>
     </Card>
     

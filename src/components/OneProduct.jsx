@@ -36,8 +36,7 @@ const OneProduct = ({ ProductInfo}) => {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'}}></Item>
       <Grid sx={{pb:"0px"}} item xs={12}  md={12}>
-      <Item variant="contained" sx={{m:"5px", textAlign: "left"}} >Price: {ProductInfo.price}</Item>
-    <Button variant="contained" sx={{m:"10px", width:"90%"}} onClick={()=>{postData.mutate({
+    <Button  variant="contained" sx={{m:"10px", width:"90%" , background: '#ff9e80' , color: '#ffffff'}} onClick={()=>{postData.mutate({
           id : ProductInfo.id,
           title : ProductInfo.title,
           price : ProductInfo.price,
@@ -45,7 +44,7 @@ const OneProduct = ({ ProductInfo}) => {
           quantity : quantity,
           total : ProductInfo.price * parseInt(quantity)
         })}}>Add to cart</Button>
-         <TextField type="number" value={quantity}  InputProps={{
+         <TextField sx={{ml:3}} type="number" value={quantity}  InputProps={{
         inputProps: { 
           min:1
         }
@@ -55,7 +54,12 @@ const OneProduct = ({ ProductInfo}) => {
     </Grid>
     </Grid>
     <Grid  item xs={12}  md={8}>
-      <Item style={{height: "100%"}}><h1>{ProductInfo.title}</h1><div style={{m:"10px", textAlign: 'left'}}>{ProductInfo.description}</div></Item>
+      <Item sx={{}} style={{height: "80%"}}>
+
+        <h1>{ProductInfo.title}</h1>
+        <div style={{m:"10px", textAlign: 'left'}}>{ProductInfo.description}</div>
+        <Item variant="contained" sx={{m:"20px", textAlign: "left"}} >Price: {ProductInfo.price} $</Item>
+      </Item>
     </Grid>
       </Grid>)
 }

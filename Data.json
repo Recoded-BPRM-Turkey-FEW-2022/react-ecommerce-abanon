@@ -5,16 +5,16 @@
       "title": "Ergonomic Concrete Ball",
       "price": 23,
       "image": "https://api.lorem.space/image/watch?w=640&h=480&r=9222",
-      "quantity": "100",
-      "total": 2300
+      "quantity": 1,
+      "total": 23
     },
     {
-      "id": 1,
-      "title": "Cooler",
-      "price": 125,
-      "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=3303",
-      "quantity": "122",
-      "total": 15250
+      "id": 3,
+      "title": "Generic Rubber Salad",
+      "price": 711,
+      "image": "https://api.lorem.space/image?w=640&h=480&r=6365",
+      "quantity": 1,
+      "total": 711
     }
   ]
 }
