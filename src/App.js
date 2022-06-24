@@ -39,7 +39,7 @@ export default function App() {
   })
   
   return (
-    <div>
+    <div style={{height: "100%" ,background:'#fff8e1'  }}>
       <NavBar setInfo={setInfo} info={info}/>
       <Routes>
       <Route path="/" element={ <React.Fragment><h1>Welcome</h1></React.Fragment>} />

@@ -94,7 +94,7 @@ useEffect(() => {
             </Select>
           </FormControl>
         </Grid>
-        <Button  margin={2} variant="contained" color="primary" type="submit">
+        <Button  margin={2} variant="contained" sx={{ background: '#ff9e80' , color: '#ffffff', width:'10%' }} type="submit">
           Filter
         </Button>
       </Grid>

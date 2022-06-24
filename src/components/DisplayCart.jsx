@@ -13,7 +13,9 @@ import '../style.css' ;
 
 const styledImage = {
   
-  width:'100px', height: '100px'
+  width:'100px', 
+  height: '100px' ,
+  border :'gray'
 }
 
 const DisplayCart = ({data})=>{
@@ -29,19 +31,19 @@ const DisplayCart = ({data})=>{
 // console.log(data)
 
 return (
+<div  style={{height: "100%" ,background:'#fff8e1'  }}>
 
-<>
 
 {data.map((product) => {
   return  (
     <>
 {/* <div key={product.id}>{product.title} <button  onClick={()=>{deleteItem.mutate(product.id)}}>X</button></div> */}
 
-<List key={product.id} sx={{ ml:14 , width: '100%', maxWidth: '70%' , bgcolor: 'background.paper' , mt:5}}>
+<List key={product.id} sx={{ ml:14 , width: '100%', maxWidth: '70%'  , mt:5}}>
   {/* <div key={product.id}> */}
       <ListItem  sx={{maxWidth:'100%'}} alignItems="center">
         <ListItemAvatar >
-          <Avatar style={styledImage} className='ss-1pqm26d-MuiAvatar-img' alt="Remy Sharp" src={product.image} />
+          <img style={styledImage} className='ss-1pqm26d-MuiAvatar-img' alt="Remy Sharp" src={product.image} />
         </ListItemAvatar>
         <ListItemText sx={{ml:10 , mt:1}}
           primary= {product.title}
@@ -70,7 +72,7 @@ return (
             
           }
         />
-        <Button onClick={()=>{deleteItem.mutate(product.id)}} size="small" color="primary">
+        <Button onClick={()=>{deleteItem.mutate(product.id)}} size="small" style={{ background: '#ff9e80', color:'#ffffff' }}>
         Remove 
         </Button>
       </ListItem>
@@ -85,10 +87,10 @@ return (
 })}
 <div className='checkout'>
 <h3 style ={{color:'gray' ,padding:'13'}}>Total Price : $$</h3>
-<Button variant="contained" sx={{m:"10px", width:"10%%" , ml:20}} style={{ background: '#2E3B55' }}>Check Out</Button>
+<Button variant="contained" sx={{m:"10px", width:"10%%" }} style={{ background: '#ff9e80', color:'#ffffff' }}>Check Out</Button>
 </div>
 
-</>
+</div>
 )
 } 
 

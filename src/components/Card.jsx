@@ -23,7 +23,7 @@ import '../style.css' ;
 
   
 return (
-    <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
+    <Card sx={{ background: '#fffde7' , maxWidth: 345}} style ={{height: "25vw"}}>
         
       <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
         <CardMedia
@@ -45,7 +45,7 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions  >
-        <Button onClick={()=>{postData.mutate({
+        <Button  sx={{ color: '#c96f53'}} onClick={()=>{postData.mutate({
           id : productID,
           title : title,
           price : price,
