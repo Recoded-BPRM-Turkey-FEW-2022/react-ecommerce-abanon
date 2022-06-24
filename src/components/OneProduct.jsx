@@ -5,7 +5,8 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import {useMutation, useQueryClient } from 'react-query'
+import TextField from '@mui/material/TextField';
+import {useMutation, useQueryClient, useState } from 'react-query'
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -14,6 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const OneProduct = ({ ProductInfo}) => {
+  const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
     return fetch('http://localhost:3000/cart', {
@@ -38,8 +40,17 @@ const OneProduct = ({ ProductInfo}) => {
           id : ProductInfo.productID,
           title : ProductInfo.title,
           price : ProductInfo.price,
-          image : ProductInfo.image
+          image : image,
+          quantity : quantity,
+          total : price * parseInt(quantity)
         })}}>Add to cart</Button>
+         <TextField type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
     </Grid>
     </Grid>
     <Grid  item xs={12}  md={8}>

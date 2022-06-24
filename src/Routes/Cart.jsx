@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useQuery, useMutation, useQueryClient } from 'react-query'
+import { useQuery} from 'react-query'
 import DisplayCart from '../components/DisplayCart'
 
 const Cart =()=>{
