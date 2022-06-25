@@ -3,13 +3,13 @@ import Filter from "../components/Filter"
 import ListOfProducts from "../components/ListOfProducts"
 //The fetch function is used to get the data from the API
 
-const AllProducts = ({info, setInfo , mutation}) => {
+const AllProducts = ({info, setInfo }) => {
    
     return(
         <>
 
        <Filter setInfo={setInfo} info={info} />
-       <ListOfProducts info={info} mutation={mutation}/>
+       <ListOfProducts info={info}/>
      
     </>
     )

@@ -4,28 +4,64 @@ import { BottomNavigation ,Toolbar, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
-
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import '../style.css' ;
 
 const Footer = () => {
     return (
         <>
-        <BottomNavigation    style={{ background: '#2E3B55' ,position='absolute' , bottom :'0' }}>
-        <Toolbar sx={{justifyContents:"space-between"}} >
-        
-        <Typography variant="h4" sx={{flexGrow: "1",cursor: "pointer"}} >
+        <BottomNavigation  className='ss-16lloyr-MuiBottomNavigation-root'  style={{ background: '#c96f53' ,position: 'static' , bottom :'0'  }}>
+        <Toolbar className='bigfooter' >
+            
+        <div className='footer'>
+        <Typography variant="h7" sx={{color:'#ffff' ,flexGrow: "1",cursor: "pointer"}} >
         AMJAD
     </Typography>
+    <div className='icon'>
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://www.linkedin.com/in/amjad-maqsouma-54bb91234/')}>
     <GitHubIcon/>
+    </IconButton>
+
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://github.com/amjadmak')}>
+    <LinkedInIcon/>
+    </IconButton>
+    
+    </div>
+    </div>
         <Divider style={{ borderColor: "#ffffff"}} sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         
-        <div>
+        <div className='footer'>
+        <Typography variant="h7" sx={{color:'#ffff' ,flexGrow: "1",cursor: "pointer"}} >
         GHUFRAN
-        </div>
+    </Typography>
+    <div className='icon'>
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://www.linkedin.com/in/ghofran-adel-9222a4208/')}>
+    <GitHubIcon/>
+    </IconButton>
+
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://github.com/ghufran-adel')}>
+    <LinkedInIcon/>
+    </IconButton>
+    
+    </div>
+    </div>
         <Divider style={{ borderColor: "#ffffff"}}  sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-        <div>
+        <div className='footer'>
+        <Typography variant="h7" sx={{color:'#ffff' ,flexGrow: "1",cursor: "pointer"}} >
         ABDU
-        </div>
+    </Typography>
+    <div className='icon'>
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://www.linkedin.com/in/amjad-maqsouma-54bb91234/')}>
+    <GitHubIcon/>
+    </IconButton>
+
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://github.com/amjadmak')}>
+    <LinkedInIcon/>
+    </IconButton>
+    
+    </div>
+    </div>
+    
         </Toolbar>
         </BottomNavigation>
         </>

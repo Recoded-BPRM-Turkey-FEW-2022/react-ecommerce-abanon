@@ -4,11 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { useMutation } from 'react-query';
+import TextField from '@mui/material/TextField';
+import { useMutation} from 'react-query';
+import { useState } from 'react';
 import '../style.css' ;
 //this should incloude "title" , "price" , "add to cart" , "prev dis." , "image" 
 
  const OneCard = ({image ,title ,price ,productID})=> {
+  const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
     return fetch('http://localhost:3000/cart', {
@@ -23,7 +26,7 @@ import '../style.css' ;
 
   
 return (
-    <Card sx={{ maxWidth: 345 }} style ={{height: "25vw"}}>
+    <Card sx={{  maxWidth: 345 ,p:'15'}} style ={{height: ""}}>
         
       <CardActionArea  href={`allproducts/${productID}`}  > {/* add the route in the cart action area here*/}
         <CardMedia
@@ -32,25 +35,36 @@ return (
         height="150"
           image={image}
           alt={title}
-          className='css-o69gx8-MuiCardMedia-root'
+          className='css-o69gx8-MuiCardMedia-root' 
          
         />
         <CardContent>
-          <Typography gutterBottom variant="" component="div">
+          <Typography sx={{ color: '#494949'}} component="div">
             {title}
           </Typography>
-          <Typography gutterBottom variant="h6" component="div">
-          Price {price}$
+          <Typography sx={{ color: '#494949'}} gutterBottom variant="" component="div">
+          Price: {price}$
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions  >
-        <Button onClick={()=>{postData.mutate({
+      <CardActions sx={{ justifyContent: 'flex-end'}}  >
+      
+        <TextField  sx={{ width:'20%'  , p:0 , mr:20}} type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
+        <Button sx={{ background: '#ff9e80' , color: '#ffffff'}}  onClick={()=>{postData.mutate({
           id : productID,
           title : title,
           price : price,
-          image : image
-        })}} size="small" color="primary">
+          image : image,
+          quantity : quantity,
+          total : price * parseInt(quantity)
+
+        })}} size="small" color="primary" background='ff9e80'>
           Add to Cart
         </Button>
       </CardActions>

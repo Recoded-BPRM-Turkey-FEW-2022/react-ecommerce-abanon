@@ -9,6 +9,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { Button} from '@mui/material';
+import { useQueryClient } from 'react-query';
 import '../style.css' ;
 
 const styledImage = {
@@ -17,6 +18,7 @@ const styledImage = {
 }
 
 const DisplayCart = ({data})=>{
+  const queryClient = new useQueryClient()
   const deleteItem = useMutation((productID)=>{
     console.log("The product With the ID " + productID+ " has been removed from the cart")
     return fetch(`http://localhost:3000/cart/${productID}`, {
@@ -27,35 +29,41 @@ const DisplayCart = ({data})=>{
      )
     
 // console.log(data)
-
+let total = 0;
 return (
+  <div  style={{height: "100%" ,background:'#fafafa'  }}>
 
-<>
-
-{data.map((product) => {
+{data.map((product) => {total= total + product.total
   return  (
     <>
-{/* <div key={product.id}>{product.title} <button  onClick={()=>{deleteItem.mutate(product.id)}}>X</button></div> */}
-
-<List key={product.id} sx={{ ml:14 , width: '100%', maxWidth: '70%' , bgcolor: 'background.paper' , mt:5}}>
-  {/* <div key={product.id}> */}
+<List  key={product.id} sx={{ ml:25 ,width: '70%' , mt:5 }}>
       <ListItem  sx={{maxWidth:'100%'}} alignItems="center">
-        <ListItemAvatar >
-          <Avatar style={styledImage} className='ss-1pqm26d-MuiAvatar-img' alt="Remy Sharp" src={product.image} />
+        <ListItemAvatar className='img' >
+        <img style={styledImage} className='ss-1pqm26d-MuiAvatar-img' alt="Remy Sharp" src={product.image} />
         </ListItemAvatar>
         <ListItemText sx={{ml:10 , mt:1}}
           primary= {product.title}
           secondary={
             <React.Fragment >
-              <Typography
-                sx={{ display: 'inline'}}
+               <Typography
+                sx={{ display: 'inline' ,ml:2 }}
                 component="span"
                 variant="body2"
                 color="text.primary"
               >
-                Quantity: 10
+              
+               price : {product.price}$
+              </Typography>
+              <Typography
+                sx={{ display: 'inline',ml:2}}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                  Quantity: {product.quantity}
                 
               </Typography>
+             
               <Typography
                 sx={{ display: 'inline' ,ml:2 }}
                 component="span"
@@ -63,32 +71,32 @@ return (
                 color="text.primary"
               >
               
-               price : {product.price} $
+               Total : {product.total} $
               </Typography>
               
             </React.Fragment>
             
           }
         />
-        <Button onClick={()=>{deleteItem.mutate(product.id)}} size="small" color="primary">
+         <Button onClick={()=>{deleteItem.mutate(product.id)}} size="small" style={{ background: '#ff9e80', color:'#ffffff' }}>
         Remove 
         </Button>
       </ListItem>
-      {/* </div> */}
       <Divider variant="inset" component="li" />
     </List>
     
     
 </>
+
 )
 
 })}
 <div className='checkout'>
-<h3 style ={{color:'gray' ,padding:'13'}}>Total Price : $$</h3>
-<Button variant="contained" sx={{m:"10px", width:"10%%" , ml:20}} style={{ background: '#2E3B55' }}>Check Out</Button>
+<h3 style ={{color:'gray' ,padding:'13'}}>Total Checkout : {total} </h3>
+<Button variant="contained" sx={{m:"10px", width:"10%%" }} style={{ background: '#ff9e80', color:'#ffffff' }}>Check Out</Button>
 </div>
 
-</>
+</div>
 )
 } 
 

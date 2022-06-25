@@ -8,12 +8,12 @@ import { Route, Routes } from "react-router-dom";
 import DisplayCart from "./components/DisplayCart";
 import Cart from "./Routes/Cart"
 import { useState, useEffect } from "react";
-import { useQuery, useMutation } from 'react-query';
+import {useMutation } from 'react-query';
 
 export default function App() {
   const [info, setInfo] = useState([])
   useEffect(() => {
-      fetch('https://fakestoreapi.com/products')
+      fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=30')
           .then(res => res.json())
           .then(data => setInfo(data))
       }, [])
@@ -39,7 +39,7 @@ export default function App() {
   })
   
   return (
-    <div>
+    <div  style={{height: "100%" ,background:'#fafafa' }}>
       <NavBar setInfo={setInfo} info={info}/>
       <Routes>
       <Route path="/" element={ <React.Fragment><h1>Welcome</h1></React.Fragment>} />

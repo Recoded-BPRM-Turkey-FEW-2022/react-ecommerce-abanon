@@ -5,7 +5,9 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import {useMutation, useQueryClient } from 'react-query'
+import {useMutation } from 'react-query'
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -14,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const OneProduct = ({ ProductInfo}) => {
+  const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct)=>{
     console.log(Addproduct)
     return fetch('http://localhost:3000/cart', {
@@ -27,23 +30,43 @@ const OneProduct = ({ ProductInfo}) => {
   })
   return (
     <Grid p={6}  style={{ height: "100%", }} container spacing={2} >
-    <Grid  sx={{}} item xs={12} md={3}>
-      <Item sx={{pb:"0px"}} style={{height: "200px", backgroundImage: `url(" ${ProductInfo.image}")`,
+    <Grid  sx={{}} item xs={12} md={8}>
+      <Item sx={{pb:"0px"}} style={{height: "70%", backgroundImage: `url(${ProductInfo.images})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'}}>Price</Item>
+  backgroundRepeat: 'no-repeat'}}></Item>
       <Grid sx={{pb:"0px"}} item xs={12}  md={12}>
-      <Item variant="contained" sx={{m:"5px", textAlign: "left"}} >Price: {ProductInfo.price}</Item>
-    <Button variant="contained" sx={{m:"10px", width:"90%"}} onClick={()=>{postData.mutate({
-          id : ProductInfo.productID,
+    </Grid>
+    </Grid>
+
+{/* second part (col) item 2 */}
+    <Grid  item xs={12}  md={3}>
+      <Item sx={{pt:4}} style={{height: "80%"}}>
+        <h2 sx={{mt:10}} className='onePageText' >{ProductInfo.title}</h2>
+        <div  className='onePageText'>
+        <h4 sx={{mt:3}} className='onePageText' style={{ textAlign: 'left'}}>{ProductInfo.description}</h4>
+        <Item  className='onePageText'  variant="contained" sx={{ textAlign: "left"}} ><h3>Price: {ProductInfo.price} $</h3></Item>
+        </div>
+        {/* under the  text */}
+        <div className='onePageAddtoCart'>
+      <Button  variant="contained" sx={{m:"10px", width:"90%" , background: '#ff9e80' , color: '#ffffff'}} onClick={()=>{postData.mutate({
+          id : ProductInfo.id,
           title : ProductInfo.title,
           price : ProductInfo.price,
-          image : ProductInfo.image
+          image : ProductInfo.images[0],
+          quantity : quantity,
+          total : ProductInfo.price * parseInt(quantity)
         })}}>Add to cart</Button>
-    </Grid>
-    </Grid>
-    <Grid  item xs={12}  md={8}>
-      <Item style={{height: "100%"}}><h1>{ProductInfo.title}</h1><div style={{m:"10px", textAlign: 'left'}}>{ProductInfo.description}</div></Item>
+         <TextField sx={{}} type="number" value={quantity}  InputProps={{
+        inputProps: { 
+          min:1
+        }
+    }} onChange={(e)=>{setQuantity(e.target.value)}}>
+
+        </TextField>
+        </div>
+      </Item>
+      
     </Grid>
       </Grid>)
 }
