@@ -51,11 +51,11 @@ const Footer = () => {
         ABDU
     </Typography>
     <div className='icon'>
-    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://www.linkedin.com/in/amjad-maqsouma-54bb91234/')}>
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://www.linkedin.com/in/abdelrahman-sherif-mostafa')}>
     <GitHubIcon/>
     </IconButton>
 
-    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://github.com/amjadmak')}>
+    <IconButton className='icon' aria-label="Linkedin.com" onClick={() => window.open('https://github.com/AbdelrahmanSherf')}>
     <LinkedInIcon/>
     </IconButton>
     

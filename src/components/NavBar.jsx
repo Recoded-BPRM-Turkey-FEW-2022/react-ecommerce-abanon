@@ -7,8 +7,7 @@ import Categories from "./Categories";
 import Search from "./Search";
 import {Link} from 'react-router-dom' ;
 
-// // For Ghofran....
-//to include "Search", "Category", "Cart", "Home (AllProducts)"
+
 const NavBar = ({setInfo, info}) => {
 
     return (
@@ -17,6 +16,7 @@ const NavBar = ({setInfo, info}) => {
     <Typography variant="h4" sx={{flexGrow: "1",cursor: "pointer"}} >
     MINISHOP
     </Typography>
+    <Button href="/" sx={{ mr:6 , color:"#ffffff"}}>Home</Button>
     <Button href="/allProducts" sx={{ mr:6 , color:"#ffffff"}}>Products</Button>
     <Categories/>
     <Search setInfo={setInfo} info={info}/>
