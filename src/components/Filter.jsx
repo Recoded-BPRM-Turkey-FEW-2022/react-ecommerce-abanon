@@ -1,33 +1,28 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
-
-
-
- //Should be exported to the list of products
-
+//Should be exported to the list of products
 
 const defaultValues = {
   name: "",
   price: 0,
-  category: "all"
+  category: "all",
 };
- const Filter = ({setInfo}) => {
-const [filteredInfo, setFilteredInfo] = useState([]);
+const Filter = ({ setInfo }) => {
+  const [filteredInfo, setFilteredInfo] = useState([]);
 
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((res) => res.json())
+      .then((data) => setFilteredInfo(data));
+  }, []);
 
-useEffect(() => {
-  fetch('https://api.escuelajs.co/api/v1/products')
-      .then(res => res.json())
-      .then(data => setFilteredInfo(data))
-  }, [])
-  
   const [formValues, setFormValues] = useState(defaultValues);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,17 +35,33 @@ useEffect(() => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-     let filtering = filteredInfo.filter(product => {return !formValues.name ? product: product.title.toLowerCase().includes(formValues.name.toLowerCase())})
-    .filter (product => {return !formValues.price? product :  product.price <= formValues.price})
-    .filter (product =>  {return formValues.category === "all"? product: product.category.name === formValues.category})
-    setInfo(filtering)
-
+    let filtering = filteredInfo
+      .filter((product) => {
+        return !formValues.name
+          ? product
+          : product.title.toLowerCase().includes(formValues.name.toLowerCase());
+      })
+      .filter((product) => {
+        return !formValues.price ? product : product.price <= formValues.price;
+      })
+      .filter((product) => {
+        return formValues.category === "all"
+          ? product
+          : product.category.name === formValues.category;
+      });
+    setInfo(filtering);
   };
   return (
-    <form  onSubmit={handleSubmit}>
-      <Grid  margin={3} container alignItems="center" justify="center" direction="row">
-        <Grid  margin={2} item>
-          <TextField 
+    <form onSubmit={handleSubmit}>
+      <Grid
+        margin={3}
+        container
+        alignItems="center"
+        justify="center"
+        direction="row"
+      >
+        <Grid margin={2} item>
+          <TextField
             id="name-input"
             name="name"
             label="Name"
@@ -59,7 +70,7 @@ useEffect(() => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid  margin={2} item>
+        <Grid margin={2} item>
           <TextField
             id="price-input"
             name="price"
@@ -69,35 +80,40 @@ useEffect(() => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid  margin={2} item>
+        <Grid margin={2} item>
           <FormControl>
             <Select
               name="category"
               value={formValues.category}
               onChange={handleInputChange}
             >
-              <MenuItem key="All" value= "all">
-              All
+              <MenuItem key="All" value="all">
+                All
               </MenuItem>
-              <MenuItem key="Clothes" value= "Clothes">
-              Clothes
+              <MenuItem key="Clothes" value="Clothes">
+                Clothes
               </MenuItem>
               <MenuItem key="Furniture" value="Furniture">
-              Furniture
+                Furniture
               </MenuItem>
               <MenuItem key="Electronics " value="Electronics">
-              Electronics
+                Electronics
               </MenuItem>
               <MenuItem key="Shoes " value="Shoes">
-              Shoes
+                Shoes
               </MenuItem>
               <MenuItem key="Others " value="Others">
-              Others
+                Others
               </MenuItem>
             </Select>
           </FormControl>
         </Grid>
-        <Button sx={{ background: '#ff9e80' , color: '#ffffff', width:'10%' ,ml:3 }}  margin={2} variant="contained"  type="submit">
+        <Button
+          sx={{ background: "#ff9e80", color: "#ffffff", width: "10%", ml: 3 }}
+          margin={2}
+          variant="contained"
+          type="submit"
+        >
           Filter
         </Button>
       </Grid>

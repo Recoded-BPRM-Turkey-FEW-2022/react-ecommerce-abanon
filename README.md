@@ -1,20 +1,5 @@
-# Ecommerce
 
-## Overview
-One of the projects you will definitely have to work on, is creating an ecommerce website. In an ecommerce website, you will need to have a page to show all products, a page to show currently opened product, and a page to show the cart.
-
-We will be using the API provided by this [website](https://fakestoreapi.com/) or this [website](https://fakeapi.platzi.com/) (Contains multiple **fake** images for the same product) You will focus mainly on the product API endpoint and you can check the website's documentation to find all the information you need to learn how to handle the pages.
-
-### API Example:
-
-```js
-https://fakestoreapi.com/products
-```
-
-## Instructions
-
-These are the instructions that you will need in order to complete the project.
-
+image.png
 ### Pre-requisites
 
 1. Add all the dependencies you need to use in your project. So you will need to add things like React router, reactstrap (see the [aesthetics](#aesthetics) section), or any other thing you will use using `npm i {package name}`. See the [recommendations](#Recommendations) section for more information.
