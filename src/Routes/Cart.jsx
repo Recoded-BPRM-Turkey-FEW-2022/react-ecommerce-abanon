@@ -7,7 +7,7 @@ const Cart = () => {
   const { isLoading, error, data } = useQuery(
     "cart",
     () =>
-      fetch(`http://localhost:3000/cart`)
+      fetch(`https://abanon-cart.herokuapp.com/cart`)
         .then((res) => res.json())
         .then((data) => {
           return data;

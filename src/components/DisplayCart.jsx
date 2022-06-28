@@ -6,7 +6,6 @@ import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { useQueryClient } from "react-query";
@@ -26,7 +25,7 @@ const DisplayCart = ({ data }) => {
           productID +
           " has been removed from the cart"
       );
-      return fetch(`http://localhost:3000/cart/${productID}`, {
+      return fetch(`https://abanon-cart.herokuapp.com/cart/${productID}`, {
         method: "DELETE",
       });
     },

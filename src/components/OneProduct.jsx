@@ -18,7 +18,7 @@ const OneProduct = ({ ProductInfo }) => {
   const [quantity, setQuantity] = useState(1);
   const postData = useMutation((Addproduct) => {
     console.log(Addproduct);
-    return fetch("http://localhost:3000/cart", {
+    return fetch("https://abanon-cart.herokuapp.com/cart", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
